@@ -10,3 +10,105 @@
   Tags: Day Care Learning
   Text Domain: day-care-learning-theme
 */
+
+:root {
+  --color-primary: #361f94;
+  --color-secondary: #e2cd7b;
+
+  --color-red: #ec5155;
+  --color-yellow: #fcc858;
+  --color-green: #1fcfa0;
+  --color-pink: #fc9df1;
+
+  --color-empty: #ffffff;
+  --color-black: #000000;
+
+  --shadow--default: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  width: 100%;
+  background-color: var(--color-empty);
+  box-shadow: var(--shadow--default);
+}
+
+.header__content {
+  max-width: 1200px;
+  width: 95%;
+  height: 76px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+
+  height: 100%;
+}
+
+.logo__image {
+  width: 100px;
+  height: 100%;
+  background-color: var(--color-red);
+}
+
+.navbar__container {
+  height: 100%;
+}
+
+.navbar__container ul {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__container .menu-item {
+  height: 100%;
+
+}
+
+.navbar__container a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 200ms all ease-in-out;
+}
+
+.navbar__container a::before {
+  content: '';
+  background-color: #e2cd7b;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+.navbar__container a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-empty);
+
+}
+
+.navbar__container .navbar__item--preregistration {
+  height: fit-content;
+}
+
+.navbar__container .navbar__item--preregistration a {
+  padding: 6px 10px;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  color: var(--color-empty);
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.navbar__container .navbar__item--preregistration a::before {
+  content: unset;
+}

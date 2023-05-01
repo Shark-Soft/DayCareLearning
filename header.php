@@ -9,7 +9,20 @@
 </head>
 
 <body>
-  <header>
-    This is the Header
+  <header class="header">
+    <div class="header__content">
+      <figure class="header__logo">
+        <img class="logo__image" src="" alt="">
+      </figure>
+      <?php
+      $args = array(
+        'theme_location' => 'nav-menu',
+        'container' => 'nav',
+        'container_class' => 'navbar__container'
+      );
+
+      wp_nav_menu($args)
+      ?>
+    </div>
   </header>
   <main>
