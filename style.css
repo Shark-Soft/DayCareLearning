@@ -12,11 +12,11 @@
 */
 
 :root {
-  --color-primary: #351F95;
+  --color-primary: #351f95;
   --color-primary-dark: #24175d;
-  --color-secondary: #FCC858;
+  --color-secondary: #fcc858;
 
-  --color-red: #EB5253;
+  --color-red: #eb5253;
   --color-green: #1fcfa0;
   --color-pink: #fc9df1;
 
@@ -27,16 +27,66 @@
 }
 
 html {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: "Gothic A1", sans-serif;
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 3.4rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 2.9rem;
+  font-weight: bold;
+}
+h4 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+h5 {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+h6 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+p,
+li {
+  font-size: 1.5rem;
+}
+
+main {
+  padding-top: 70px;
+}
+
+.marginContainer {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+}
+
+/* HEADER */
+
 .header {
   width: 100%;
   position: fixed;
+  z-index: 5;
   /* !For wp header */
-  top: 32px;
+  /* top: 32px; */
   background-color: var(--color-empty);
   box-shadow: var(--shadow--default);
 }
@@ -50,8 +100,6 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 .navbar__container {
   height: 100%;
@@ -83,7 +131,7 @@ html {
 }
 
 .navbar__container a::before {
-  content: '';
+  content: "";
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -97,7 +145,7 @@ html {
 }
 
 .navbar__container a::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 1.8rem;
   width: 1px;
@@ -136,12 +184,10 @@ html {
 
 .navbar__container .navbar__item--preregistration a:hover {
   background-color: var(--color-primary-dark);
-
 }
 
 .navbar__item--circle-blue a::before {
   background-image: url(images/header/circle-blue.png);
-
 }
 
 .navbar__item--square-green a::before {
@@ -162,4 +208,232 @@ html {
 
 .navbar__item--circle-yellow a::before {
   background-image: url(images/header/circle-yellow.png);
+}
+/* HERO */
+
+.heroSlider {
+  width: 100%;
+}
+
+/* OUR PROGRAMS */
+.ourPrograms {
+  text-align: center;
+}
+.ourPrograms__title {
+  padding: 40px 0;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+.ourPrograms__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 20px;
+}
+.ourPrograms__content__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: 317px;
+  padding: 10px;
+  font-weight: bold;
+  color: var(--color-primary);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.ourPrograms__content__item:hover {
+  border-radius: 8px;
+  background-color: var(--color-primary);
+}
+.ourPrograms__content__item:hover p {
+  color: var(--color-empty);
+}
+.ourPrograms__content__item img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+/* OUR CURRICULUM */
+
+.bg--red::before {
+  content: " ";
+  position: absolute;
+  z-index: 3;
+  top: -130px;
+  width: 100%;
+  height: 130px;
+  background-image: url(images/ourCurriculum/RED-BACKGROUND-TOP.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg--red {
+  position: relative;
+  z-index: 0;
+  margin-top: 180px;
+  margin-bottom: 80px;
+  background-color: var(--color-red);
+}
+
+.bg--red::after {
+  content: " ";
+  position: absolute;
+  z-index: 3;
+  bottom: -130px;
+  width: 100%;
+  height: 130px;
+  background-image: url(images/ourCurriculum/RED-BACKGROUND-BOTTOM.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ourCurriculum {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.ourCurriculum__title,
+.item__title {
+  color: var(--color-secondary);
+}
+
+.ourCurriculum__content__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.itemImg {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+
+.itemData {
+  text-align: justify;
+}
+
+.titleIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.itemData p {
+  display: inline-block;
+  width: 85%;
+
+  margin: 20px 0px;
+  color: var(--color-empty);
+}
+
+.ourCurriculum__content__item:nth-child(2n) .itemData {
+  text-align: end;
+}
+
+/* OUR MISSION */
+
+.ourMission {
+  padding: 10px 0;
+}
+
+.ourMission__content__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ourMission__itemData {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ourMission__title {
+  color: var(--color-primary);
+}
+
+.ourMission__itemData p {
+  color: var(--color-black);
+  padding-right: 50px;
+}
+
+/* POLICES & PROCEDURES */
+
+.bg--yellow::before {
+  content: " ";
+  position: absolute;
+  z-index: 3;
+  top: -130px;
+  width: 100%;
+  height: 130px;
+  background-image: url(images/polices/YELLOW-BACKGROUND-TOP.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg--yellow {
+  position: relative;
+  margin: 100px 0px;
+  margin-bottom: 180px;
+  background-color: var(--color-secondary);
+}
+
+.bg--yellow::after {
+  content: " ";
+  position: absolute;
+  z-index: 3;
+  bottom: -130px;
+  width: 100%;
+  height: 130px;
+  background-image: url(images/polices/YELLOW-BACKGROUND-BOTTOM.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ourPolicies {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 0px;
+  width: 100%;
+}
+.ourPolicies__item {
+  display: flex;
+  width: 50%;
+}
+
+.policesImg {
+  width: 146px;
+  height: 146px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.policesTitle {
+  color: var(--color-primary);
+}
+
+.policesData p {
+  margin: 12px 0;
+}
+.policesData li::before {
+  content: "-";
+  margin-right: 4px;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: var(--color-black);
+  padding: 15px 0;
+}
+
+footer p {
+  color: var(--color-empty);
+  text-align: center;
 }
