@@ -10,7 +10,8 @@ add_action('after_setup_theme', 'day_care_setup');
 function day_care_dependencies()
 {
   wp_enqueue_style('reset', get_template_directory_uri() . '/assets/css/reset.css', array(), '1.0.0');
-  wp_enqueue_style('global', get_stylesheet_uri(), array('reset'), '1.0.0');
+  wp_enqueue_style('font', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap', array(), '1.0.0');
+  wp_enqueue_style('global', get_stylesheet_uri(), array('reset', 'font'), '1.0.0');
 }
 
 function day_care_menus()
