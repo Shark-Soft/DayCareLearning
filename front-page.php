@@ -254,8 +254,8 @@
 <div class="bg--pink">
     <section id="enrollment" class="enrollment marginContainer">
         <h1 class="enrollment__title plpTitle">Enrollment application</h1>
-        <article class="employment__content">
-            <div class="employmentItem">
+        <article class="enrollment__content">
+            <div class="enrollmentItem">
                 <h5>He application and admissions forms.</h5>
                 <ul>
                     <li> - Medical Release Form (authorization)</li>
@@ -267,7 +267,7 @@
                     <li> - Media Release Form</li>
                 </ul>
             </div>
-            <div class="employmentItem">
+            <div class="enrollmentItem">
                 <h5>Other Forms</h5>
                 <ul>
                     <li> - Toilet Training Information Form</li>
@@ -278,7 +278,7 @@
                 </ul>
             </div>
         </article>
-        <article class="employment__footer">
+        <article class="enrollment__footer">
             <a href="https://drive.google.com/drive/folders/14crhrINzP4Q726TdcsbseJachiKzbpzz" target="_blank">
                 <h4 class="plpTitle">Download Forms</h4>
             </a>
@@ -293,33 +293,28 @@
 <section id="contact" class="contact marginContainer">
     <h2 class="contact__title">Contact</h2>
     <article class="contact__content">
-        <div class="contact__container">
-            <img class="contact__itemImg" rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/TREN.png'); ?>" alt="">
+        <div class="contact__content__formContainer">
+            <img class="formImg" rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/TREN.png'); ?>" alt="">
             <form action="/my-handling-form-page" method="post">
                 <ul class="inputs">
                     <li>
-                        <!-- <label for="name">NAME:</label> -->
                         <input type="text" id="name" name="user_name" placeholder="NAME">
                     </li>
                     <li>
-                        <!-- <label for="mail">EMAIL:</label> -->
                         <input type="email" id="mail" name="user_mail" placeholder="E-mail">
                     </li>
                     <li>
-                        <!-- <label for="mail">EMAIL:</label> -->
                         <input type="phone" id="phone" name="user_phone" placeholder="PHONE">
                     </li>
                     <li>
-                        <!-- <label for="msg">MESSAGE:</label> -->
                         <textarea id="msg" name="user_message"></textarea>
                     </li>
                 </ul>
-                <button class="button">Send message</button>
+                <button class="btn">Send message</button>
             </form>
         </div>
-        <div class="contact__itemData">SOY EL MAPA
-            <!-- <h2 class="nutrition__title">Forest Café Nutrition</h2>
-            <p>Our all inclusive delicious and nutritious meals are prepared in house daily. Your child will be provided with a healthy morning snack, a hearty lunch and an afternoon snack.</p> -->
+        <div class="contact__content__mapContainer">
+            SOY EL MAPA
         </div>
     </article>
 </section>
