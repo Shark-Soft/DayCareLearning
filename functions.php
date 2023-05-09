@@ -1,4 +1,7 @@
 <?php
+include 'inc/programs/postType.php';
+include 'inc/staffValues/postType.php';
+
 
 function day_care_setup()
 {
@@ -21,6 +24,11 @@ function day_care_menus()
   ));
 }
 
+add_action('admin_init', 'remove_editor');
+function remove_editor()
+{
+  remove_post_type_support('page', 'editor');
+}
 add_action('init', 'day_care_menus');
 
 add_action('wp_enqueue_scripts', 'day_care_dependencies');
