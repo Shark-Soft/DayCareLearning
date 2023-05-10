@@ -223,6 +223,77 @@ main {
   background-image: url(images/header/circle-yellow.png);
 }
 
+/* NavBar mobile */
+.navbar__container--mobile {
+  display: none;
+}
+
+.button--burger {
+  display: none;
+}
+
+@media only screen and (max-width: 1115px) {
+  .navbar__container {
+    display: none;
+  }
+
+  .button--burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #24175d;
+    border-radius: 10px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .button--burger div {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-empty);
+    border-radius: 5px;
+  }
+
+
+  .navbar__container--mobile {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: transparent;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 100%;
+    transition: 300ms all ease-in-out;
+    color: var(--color-empty);
+  }
+
+  .navbar__container--mobile--active {
+    left: 0;
+
+  }
+
+  .navbar__content--mobile {
+    background-color: var(--color-primary);
+    height: 100%;
+    width: 40%;
+
+  }
+
+  .btn-close--navbar {
+    content: 'x';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+
+  }
+
+
+
+}
+
 /* HERO */
 
 .heroSlider {
@@ -296,8 +367,7 @@ main {
     padding: 12px;
   }
 
-  .ourPrograms__content__item {
-  }
+  .ourPrograms__content__item {}
 }
 
 @media only screen and (min-width: 820px) and (max-width: 825px) {
@@ -307,8 +377,7 @@ main {
     padding: 12px;
   }
 
-  .ourPrograms__content__item {
-  }
+  .ourPrograms__content__item {}
 }
 
 /* OUR CURRICULUM */
@@ -583,6 +652,7 @@ main {
     width: 100%;
     padding: 0 10px;
   }
+
   .policesData {
     padding: 0 10px;
   }
@@ -1026,7 +1096,7 @@ textarea {
     flex-direction: column;
   }
 
-  .contact__content > div {
+  .contact__content>div {
     width: 100%;
   }
 

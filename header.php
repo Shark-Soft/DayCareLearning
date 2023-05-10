@@ -25,6 +25,22 @@
 
       wp_nav_menu($args)
       ?>
+      <div class="navbar__container--mobile">
+        <span class="btn-close--navbar">x</span>
+        <?php
+        $args = array(
+          'theme_location' => 'nav-menu',
+          'container' => 'nav',
+          'container_class' => 'navbar__content--mobile'
+        );
+        wp_nav_menu($args)
+        ?>
+      </div>
+      <div class="button--burger">
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+      </div>
     </div>
   </header>
   <main>
