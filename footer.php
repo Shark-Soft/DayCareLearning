@@ -1,6 +1,6 @@
 </main>
 <footer>
-  <p>Copyright © <?php echo date("Y"); ?> Neus Soft S.A.S</p>
+  <!-- <p>Copyright © <?php echo date("Y"); ?> Neus Soft S.A.S</p> -->
 </footer>
 <?php wp_footer() ?>
 
