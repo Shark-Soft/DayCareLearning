@@ -7,6 +7,7 @@ const btnReadMore = getEls(".ourPrograms__btn");
 
 const btnBurger = getEl(".button--burger");
 const navMobile = getEl(".navbar__container--mobile");
+const navButtons = getEls(".navbar__container--mobile .menu-item");
 const btnCloseNav = getEl(".btn-close--navbar");
 
 const toggleNav = () => {
@@ -32,3 +33,8 @@ btnReadMore.forEach((element) => {
   });
 });
 
+navButtons.forEach((element) => {
+  element.addEventListener("click", () => {
+    toggleNav();
+  });
+})

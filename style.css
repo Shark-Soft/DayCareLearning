@@ -240,19 +240,19 @@ main {
   .button--burger {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 5px;
     background-color: #24175d;
-    border-radius: 10px;
-    height: 30px;
-    padding: 5px;
+    border-radius: 5px;
+    padding: 8px 6px;
   }
 
   .button--burger div {
     display: block;
-    width: 30px;
-    height: 3px;
+    width: 25px;
+    height: 2px;
     background-color: var(--color-empty);
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
 
@@ -261,11 +261,11 @@ main {
     flex-direction: row-reverse;
     background-color: transparent;
     position: absolute;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     top: 0;
     left: 100%;
-    transition: 300ms all ease-in-out;
+    transition: 300ms left ease-in-out;
     color: var(--color-empty);
   }
 
@@ -276,9 +276,10 @@ main {
 
   .navbar__content--mobile {
     background-color: var(--color-primary);
+    padding: 60px 20px;
     height: 100%;
-    width: 40%;
-
+    width: 60%;
+    padding-bottom: 35px;
   }
 
   .btn-close--navbar {
@@ -287,9 +288,75 @@ main {
     top: 10px;
     right: 10px;
     font-size: 2rem;
+  }
+
+  .navbar__container--mobile ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    position: relative;
 
   }
 
+  .navbar__container--mobile .menu-item {
+    color: var(--color-empty);
+    border-bottom: var(--color-empty) 1px solid;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar__container--mobile a {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  .navbar__container--mobile a::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 24px;
+    width: 24px;
+    display: block;
+  }
+
+  .navbar__container--mobile .menu-item a::after {
+    content: '+';
+    /* put it in end of the flex */
+    margin-left: auto;
+  }
+
+  .navbar__container--mobile .navbar__item--preregistration a::after {
+    content: unset;
+  }
+
+  .navbar__container--mobile .navbar__item--preregistration {
+    padding-right: 0;
+    border: none;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .navbar__container--mobile .navbar__item--preregistration a::before {
+    content: unset;
+  }
+
+  .navbar__container--mobile .navbar__item--preregistration a {
+    padding: 8px 12px;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: var(--color-empty);
+    color: var(--color-primary);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+  }
 
 
 }
