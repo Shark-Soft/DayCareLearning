@@ -13,9 +13,8 @@
             'orderby' => 'post_id',
             'order' => 'ASC'
         ));
-
         while ($loop->have_posts()) : $loop->the_post(); ?>
-            <div class="ourPrograms__content__item">
+            <div class="ourPrograms__content__item" data-des="<?php echo get_field('description'); ?>" data-color="<?php echo get_field('modal_color'); ?>" data-img="<?php echo wp_get_attachment_image_url(get_field('image'), 'full'); ?>" data-logo="<?php echo esc_url(get_template_directory_uri() . '/images/logo.png'); ?>">
                 <?php
                 $image = get_field('image');
                 $size = 'full'; // (thumbnail, medium, large, full or custom size)
@@ -33,6 +32,22 @@
         wp_reset_postdata(); ?>
 
     </article>
+    <article class="modalPrograms">
+
+    </article>
+    <!-- <article class="ourPrograms__modal">
+        <div class="modalContent">
+            <div class="modalContent__close">x</div>
+            <div class="modalContent__img">
+                <img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/ourPrograms/MEDUSA.png'); ?>" alt="Logo" />
+            </div>
+            <p>Our Joyful Jellyfish program provides nurturing care and education to infants ages 6 weeks to 12 months.
+
+                We strive to provide a safe, healthy, nurturing environment that will foster a solid foundation for learning and development.</p>
+            <a href="">info@newgdaycare.com</a>
+            <img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/logo.png'); ?>" alt="Logo" />
+        </div>
+    </article> -->
 </section>
 
 <div class=bg--red>
@@ -255,6 +270,23 @@
             </div>
         </article>
     </section>
+</div>
+
+<div class="swiper-container">
+    <h2 class="galleryTitle">Gallery</h2>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="slide-content">Contenido del slide 1</div>
+        </div>
+        <div class="swiper-slide">
+            <div class="slide-content">Contenido del slide 2</div>
+        </div>
+        <div class="swiper-slide">
+            <div class="slide-content">Contenido del slide 3</div>
+        </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 </div>
 
 <section id="contact" class="contact marginContainer">

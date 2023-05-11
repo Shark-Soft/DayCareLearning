@@ -32,3 +32,13 @@ function remove_editor()
 add_action('init', 'day_care_menus');
 
 add_action('wp_enqueue_scripts', 'day_care_dependencies');
+
+// function incluir_campos_de_pestana($response, $post, $request) {
+//   if (!empty($response->data)) {
+//       $post_id = $response->data['id'];
+//       $post_fields = get_fields($post_id);
+//       $response->data['acf'] = $post_fields;
+//   }
+//   return $response;
+// }
+// add_filter('rest_prepare_tu_post_type', 'incluir_campos_de_pestana', 10, 3);
