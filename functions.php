@@ -2,6 +2,8 @@
 include 'inc/programs/postType.php';
 include 'inc/staffValues/postType.php';
 include 'inc/staff/postTypeStaff.php';
+include 'inc/positions/postType.php';
+include 'inc/socialMedia/postType.php';
 
 
 function day_care_setup()
