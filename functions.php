@@ -1,6 +1,7 @@
 <?php
 include 'inc/programs/postType.php';
 include 'inc/staffValues/postType.php';
+include 'inc/staff/postTypeStaff.php';
 
 
 function day_care_setup()

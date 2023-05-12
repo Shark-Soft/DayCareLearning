@@ -49,7 +49,7 @@ navButtons.forEach((element) => {
   element.addEventListener("click", () => {
     toggleNav();
   });
-})
+});
 //GALLERY
 var mySwiper = new Swiper(".swiper-container", {
   // Opciones de configuración
@@ -74,7 +74,7 @@ function showPogramModal(program) {
       <div class="modalContent__txt">
           ${program.description}
       </div>
-      <a href="">info@newgdaycare.com</a>
+      <a href="mailto:info@newgdaycare.com">info@newgdaycare.com</a>
       <img rel="preload" src="${program.appLogo}" alt="Logo" />
     </div>
   </article>`;
@@ -87,6 +87,8 @@ function showPogramModal(program) {
       e.target.className == "ourPrograms__modal"
     ) {
       modalBg.style.display = "none";
+      document.body.style.overflow = "auto";
     }
   });
+  document.body.style.overflow = "hidden";
 }
