@@ -4,11 +4,13 @@ const getEls = (selector) => document.querySelectorAll(selector);
 
 //ELEMENTS
 const program = getEls(".ourPrograms__content__item");
+const btnPosition = getEls(".btnPosition");
 const btnBurger = getEl(".button--burger");
 const navMobile = getEl(".navbar__container--mobile");
 const navButtons = getEls(".navbar__container--mobile .menu-item");
 const btnCloseNav = getEl(".btn-close--navbar");
-const modalCon = getEl(".modalPrograms");
+const modalProgramsCon = getEl(".modalPrograms");
+const modalPositionsCon = getEl(".modalPositionsCon");
 
 //UI FUNCTIONS
 const toggleNav = () => {
@@ -47,6 +49,20 @@ program.forEach((element) => {
   });
 });
 
+btnPosition.forEach((element) => {
+  element.addEventListener("click", () => {
+    const positionName = element.getAttribute("data-position_name");
+    const posRes = element.getAttribute("data-modal_responsabilities");
+    const appLogo = element.getAttribute("data-logo");
+    const position = {
+      positionName,
+      posRes,
+      appLogo,
+    };
+    showPositionModal(position);
+  });
+});
+
 navButtons.forEach((element) => {
   element.addEventListener("click", () => {
     toggleNav();
@@ -75,7 +91,7 @@ const gallerySwiper = new Swiper("#swiper-gallery", {
 
 //MODAL DISPLAY FUNCTION
 function showPogramModal(program) {
-  modalCon.innerHTML = `
+  modalProgramsCon.innerHTML = `
   <article class="ourPrograms__modal">
     <div class="modalContent">
       <div class="modalContent__close">x</div>
@@ -102,4 +118,33 @@ function showPogramModal(program) {
     }
   });
   document.body.classList.add("unScroll");
+}
+
+function showPositionModal(position) {
+  modalPositionsCon.innerHTML = `
+  <article class="ourPrograms__modal">
+        <div class="modalContent">
+            <div class="modalContent__close">x</div>
+            <h2>${position.positionName}</h2>
+            <div class="modalPositionInfo wysiwyg__container">
+              ${position.posRes}
+            </div>
+            <img rel="preload" src="${position.appLogo}" alt="Logo" />
+        </div>
+    </article>
+
+  `;
+  const modalBg = getEl(".ourPrograms__modal");
+  const modalInfo = getEl(".modalContent");
+  modalInfo.style.backgroundColor = `${program.color}`;
+  modalBg.addEventListener("click", (e) => {
+    if (
+      e.target.className == "modalContent__close" ||
+      e.target.className == "ourPrograms__modal"
+    ) {
+      modalBg.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+  document.body.style.overflow = "hidden";
 }

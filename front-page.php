@@ -21,7 +21,7 @@
     </section>
 </section>
 
-<section id="#programs" class="ourPrograms marginContainer">
+<section id="programs" class="ourPrograms marginContainer">
     <h1 class="ourPrograms__title plpTitle">Our Programs</h1>
     <article class="ourPrograms__content">
         <?php
@@ -161,7 +161,7 @@
     </section>
 </div>
 
-<section id="#staff" class="ourStaff marginContainer">
+<section id="staff" class="ourStaff marginContainer">
     <article class="ourStaff__intro">
         <h1 class="ourStaff__intro__title plpTitle"><?php the_field('staff_title') ?></h1>
         <div class="ourStaff__intro__info wysiwyg__container">
@@ -230,7 +230,7 @@
             <div class="employment__itemData">
                 <h2 class="employment__title plpTitle"><?php the_field('employment_title') ?></h2>
                 <div class="wysiwyg__container"><?php the_field('employment_info') ?></div>
-                <h5> <a href="./employment"><?php the_field('employment_subT') ?></a> </h5>
+                <h5> <a href="./employment" target="_blank"><?php the_field('employment_subT') ?></a> </h5>
             </div>
         </article>
     </section>
@@ -360,12 +360,5 @@
     </article>
 </section>
 
-<section class="socialMedia">
-    <a href=""><img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/PHONE.png'); ?>" alt="Phone" /></a>
-    <a href="mailto:info@newgdaycare.com"><img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/MAIL.png'); ?>" alt="Mail" /></a>
-    <a href="https://www.facebook.com/NewgDayCare" target="_blank"><img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/FACEBOOK.png'); ?>" alt="facebook" /></a>
-    <a href="https://www.instagram.com/newgdaycaregvl/?igshid=15hrgmkyu5k2x" target="_blank"><img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/INSTAGRAM.png'); ?>" alt="Instagram" /></a>
-    <a href="#top" class="goTop">up</a>
-</section>
 
 <?php get_footer(); ?>
