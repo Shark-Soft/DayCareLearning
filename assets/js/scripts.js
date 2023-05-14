@@ -13,6 +13,8 @@ const modalCon = getEl(".modalPrograms");
 //UI FUNCTIONS
 const toggleNav = () => {
   navMobile.classList.toggle("navbar__container--mobile--active");
+  document.body.classList.toggle("unScroll");
+
 };
 
 btnBurger.addEventListener("click", () => {
@@ -50,15 +52,24 @@ navButtons.forEach((element) => {
     toggleNav();
   });
 });
+// Hero
+const heroSwiper = new Swiper("#swiper-hero", {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  loop: true,
+  autoplay: {
+    delay: 1000,
+  },
+});
+
 //GALLERY
-var mySwiper = new Swiper(".swiper-container", {
-  // Opciones de configuración
+const gallerySwiper = new Swiper("#swiper-gallery", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: "#swiper-gallery .swiper-button-next",
+    prevEl: "#swiper-gallery .swiper-button-prev",
   },
 });
 
@@ -87,8 +98,8 @@ function showPogramModal(program) {
       e.target.className == "ourPrograms__modal"
     ) {
       modalBg.style.display = "none";
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("unScroll");
     }
   });
-  document.body.style.overflow = "hidden";
+  document.body.classList.add("unScroll");
 }

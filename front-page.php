@@ -1,7 +1,24 @@
 <?php get_header(); ?>
 
 <section class="heroSlider">
-    <img class="heroBanner" rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/heroSlider/BANNER.png'); ?>" alt="banner">
+    <section class="swiper-container" id="swiper-hero">
+        <div class="swiper-wrapper">
+            <?php
+            $loop = new WP_Query(array(
+                'post_type' => 'hero_slider',
+                'orderby' => 'post_id',
+                'order' => 'ASC'
+            ));
+
+            while ($loop->have_posts()) : $loop->the_post(); ?>
+                <div class="swiper-slide">
+                    <img src="<?php echo wp_get_attachment_image_url(get_field('desktop_image_hero'), 'full'); ?>" class="desktop__hero">
+                    <img src="<?php echo wp_get_attachment_image_url(get_field('mobile_image_hero'), 'full'); ?>" class="mobile__hero">
+                </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </div>
+    </section>
 </section>
 
 <section id="#programs" class="ourPrograms marginContainer">
@@ -33,21 +50,7 @@
 
     </article>
     <article class="modalPrograms">
-
     </article>
-    <!-- <article class="ourPrograms__modal">
-        <div class="modalContent">
-            <div class="modalContent__close">x</div>
-            <div class="modalContent__img">
-                <img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/ourPrograms/MEDUSA.png'); ?>" alt="Logo" />
-            </div>
-            <p>Our Joyful Jellyfish program provides nurturing care and education to infants ages 6 weeks to 12 months.
-
-                We strive to provide a safe, healthy, nurturing environment that will foster a solid foundation for learning and development.</p>
-            <a href="">info@newgdaycare.com</a>
-            <img rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/logo.png'); ?>" alt="Logo" />
-        </div>
-    </article> -->
 </section>
 
 <div class=bg--red>
@@ -282,23 +285,29 @@
     </section>
 </div>
 
-<div class="swiper-container">
+<section class="swiper-container" id="swiper-gallery">
     <h2 class="galleryTitle">Gallery</h2>
 
     <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="slide-content">Contenido del slide 1</div>
-        </div>
-        <div class="swiper-slide">
-            <div class="slide-content">Contenido del slide 2</div>
-        </div>
-        <div class="swiper-slide">
-            <div class="slide-content">Contenido del slide 3</div>
-        </div>
+        <?php
+        $loop = new WP_Query(array(
+            'post_type' => 'gallery_slider',
+            'orderby' => 'post_id',
+            'order' => 'ASC'
+        ));
+
+        while ($loop->have_posts()) : $loop->the_post(); ?>
+            <div class="swiper-slide">
+                <div class="slide-content">
+                    <img src="<?php echo wp_get_attachment_image_url(get_field('image_gallery'), 'full'); ?>">
+                </div>
+            </div>
+        <?php endwhile;
+        wp_reset_postdata(); ?>
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-</div>
+</section>
 
 <section id="contact" class="contact marginContainer">
     <h2 class="contact__title">Contact</h2>
@@ -346,7 +355,7 @@
                     </a>
                 </div>
             </div>
-            <div class="map">mapa</div>
+            <div class="map"><iframe src="https://maps.google.com/maps?q=34.807578, -82.418969&output=embed" frameborder="0" style="border:0"></iframe></div>
         </div>
     </article>
 </section>

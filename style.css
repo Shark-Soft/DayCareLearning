@@ -28,6 +28,10 @@
   --shadow--default: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.unScroll {
+  overflow: hidden;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -119,8 +123,6 @@ main {
   width: 100%;
   position: fixed;
   z-index: 5;
-  /* !For wp header */
-  /* top: 32px; */
   background-color: var(--color-empty);
   box-shadow: var(--shadow--default);
 }
@@ -379,10 +381,26 @@ main {
 
 /* HERO */
 
-.heroSlider {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+#swiper-hero {
+  overflow: hidden;
+}
+
+.desktop__hero {
+  display: block;
+}
+
+.mobile__hero {
+  display: none;
+}
+
+@media only screen and (max-width: 815px) {
+  .desktop__hero {
+    display: none;
+  }
+
+  .mobile__hero {
+    display: block;
+  }
 }
 
 /* OUR PROGRAMS */
@@ -1126,7 +1144,7 @@ main {
 
 /* GALLERY */
 
-.swiper-container {
+#swiper-gallery.swiper-container {
   width: 70%;
   height: 500px;
   position: relative;
@@ -1141,7 +1159,7 @@ main {
   text-align: center;
 }
 
-.swiper-slide {
+#swiper-gallery .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1153,8 +1171,14 @@ main {
   background-color: var(--color-red);
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.slide-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#swiper-gallery .swiper-button-prev,
+#swiper-gallery .swiper-button-next {
   position: absolute;
   top: 60%;
   transform: translateY(-50%);
@@ -1164,20 +1188,20 @@ main {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 2;
+
 }
 
-/* .swiper-button-prev {
-  left: 25%;
-}
-
-.swiper-button-next {
-  right: 25%;
-} */
 
 @media only screen and (min-width: 320px) and (max-width: 549px) {
+  #swiper-gallery.swiper-container {
+    width: 100%;
+  }
+
   .swiper-container {
     width: 100%;
   }
+
   .slide-content {
     width: 290px;
     height: 240px;
@@ -1188,6 +1212,7 @@ main {
   .swiper-container {
     width: 80%;
   }
+
   .slide-content {
     width: 350px;
     height: 300px;
@@ -1317,8 +1342,13 @@ textarea {
 }
 
 .map {
-  height: 200px;
+  height: 400px;
   background-color: var(--color-green);
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 853px) {
@@ -1326,7 +1356,7 @@ textarea {
     flex-direction: column;
   }
 
-  .contact__content > div {
+  .contact__content>div {
     width: 100%;
   }
 
