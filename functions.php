@@ -4,6 +4,8 @@ include 'inc/staffValues/postType.php';
 include 'inc/staff/postTypeStaff.php';
 include 'inc/heroSlider/postType.php';
 include 'inc/gallerySlider/postType.php';
+include 'inc/positions/postType.php';
+include 'inc/socialMedia/postType.php';
 
 
 function day_care_setup()
