@@ -6,6 +6,7 @@ include 'inc/heroSlider/postType.php';
 include 'inc/gallerySlider/postType.php';
 include 'inc/positions/postType.php';
 include 'inc/socialMedia/postType.php';
+include 'inc/locations/postType.php';
 
 
 function day_care_setup()

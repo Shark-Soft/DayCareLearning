@@ -11,6 +11,8 @@ const navButtons = getEls(".navbar__container--mobile .menu-item");
 const btnCloseNav = getEl(".btn-close--navbar");
 const modalProgramsCon = getEl(".modalPrograms");
 const modalPositionsCon = getEl(".modalPositionsCon");
+const mapContainers = getEls(".map__container");
+const mapButtons = getEls(".btn-map");
 
 //UI FUNCTIONS
 const toggleNav = () => {
@@ -73,9 +75,10 @@ const heroSwiper = new Swiper("#swiper-hero", {
   slidesPerView: 1,
   spaceBetween: 0,
   loop: true,
-  autoplay: {
-    delay: 1000,
-  },
+  centeredSlides: true,
+  // autoplay: {
+  //   delay: 1000,
+  // },
 });
 
 //GALLERY
@@ -148,3 +151,30 @@ function showPositionModal(position) {
   });
   document.body.style.overflow = "hidden";
 }
+
+mapButtons.forEach((btn, index) => {
+  if(index == 0) {
+    mapContainers[index].classList.add("map--active");
+    btn.classList.add("btn-map--active");
+    // add disabled
+    btn.disabled = true;
+    btn.innerHTML = "Selected";
+  }
+  btn.addEventListener("click", (el) => {
+    el.preventDefault();
+    mapContainers.forEach((map) => {
+      map.classList.remove("map--active");
+    }
+    );
+    mapButtons.forEach((btn) => {
+      btn.classList.remove("btn-map--active");
+      btn.disabled = false;
+      btn.innerHTML = "Show";
+    })
+    btn.disabled = true;
+    btn.innerHTML = "Selected";
+    btn.classList.add("btn-map--active");
+    mapContainers[index].classList.add("map--active");
+  })
+  
+});

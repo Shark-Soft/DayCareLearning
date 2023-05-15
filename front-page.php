@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="heroSlider">
+<section class="heroSlider" id="top">
     <section class="swiper-container" id="swiper-hero">
         <div class="swiper-wrapper">
             <?php
@@ -53,8 +53,8 @@
     </article>
 </section>
 
-<div class=bg--red>
-    <section id="curriculum" class="ourCurriculum">
+<div class=bg--red id="curriculum">
+    <section class="ourCurriculum">
         <h2 class="ourCurriculum__title"> <?php the_field('main_titleCu'); ?></h2>
         <div class="ourCurriculum__content__list">
             <article class="ourCurriculum__content__item">
@@ -230,7 +230,7 @@
             <div class="employment__itemData">
                 <h2 class="employment__title plpTitle"><?php the_field('employment_title') ?></h2>
                 <div class="wysiwyg__container"><?php the_field('employment_info') ?></div>
-                <h5> <a href="./employment" target="_blank"><?php the_field('employment_subT') ?></a> </h5>
+                <h5> <a class="employmentUrl" href="./employment" target="_blank"><?php the_field('employment_subT') ?></a> </h5>
             </div>
         </article>
     </section>
@@ -285,7 +285,9 @@
     </section>
 </div>
 
-<section class="swiper-container" id="swiper-gallery">
+<section class="swiper-container " <?php if (!get_field('show_gallery')) {
+                                        echo 'style="display:none"';
+                                    } ?> id="swiper-gallery">
     <h2 class="galleryTitle">Gallery</h2>
 
     <div class="swiper-wrapper">
@@ -314,23 +316,7 @@
     <article class="contact__content">
         <div class="contact__content__formContainer">
             <img class="formImg" rel="preload" src="<?php echo esc_url(get_template_directory_uri() . '/images/contact/TREN.png'); ?>" alt="">
-            <form action="/my-handling-form-page" method="post">
-                <ul class="inputs">
-                    <li>
-                        <input type="text" id="name" name="user_name" placeholder="NAME">
-                    </li>
-                    <li>
-                        <input type="email" id="mail" name="user_mail" placeholder="E-mail">
-                    </li>
-                    <li>
-                        <input type="phone" id="phone" name="user_phone" placeholder="PHONE">
-                    </li>
-                    <li>
-                        <textarea id="msg" name="user_message"></textarea>
-                    </li>
-                </ul>
-                <button class="btn">Send message</button>
-            </form>
+            <?php echo apply_shortcodes(get_field('form_short-code')); ?>
         </div>
         <div class="contact__content__mapContainer">
             <div class="contactInfo">
@@ -355,7 +341,39 @@
                     </a>
                 </div>
             </div>
-            <div class="map"><iframe src="https://maps.google.com/maps?q=34.807578, -82.418969&output=embed" frameborder="0" style="border:0"></iframe></div>
+            <div>
+                <div class="selectors__container">
+                    <?php
+                    $loop = new WP_Query(array(
+                        'post_type' => 'location_post_type',
+                        'orderby' => 'post_id',
+                        'order' => 'ASC'
+                    ));
+                    while ($loop->have_posts()) : $loop->the_post(); ?>
+
+                        <div class="map__selector">
+                            <h6>
+                                <?php the_title(); ?>
+                            </h6>
+                            <button type="button" class="btn-map" data-map="<?php echo the_ID(); ?>">
+                                Show
+                            </button>
+                        </div>
+
+                    <?php endwhile;
+                    ?>
+                </div>
+                <?php
+                while ($loop->have_posts()) : $loop->the_post(); ?>
+                    <div class="map__container" data-map="<?php echo the_ID(); ?>">
+                        <?php echo get_field('map_text'); ?>
+                    </div>
+                <?php endwhile;
+                wp_reset_postdata();
+
+                ?>
+
+            </div>
         </div>
     </article>
 </section>
